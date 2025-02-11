@@ -1,0 +1,15 @@
+/Michi/Library/Artifacts
+*.dll
+*.pdb
+*.mvfrm
+*.dag_fsmtime
+/Michi/Library/Bee
+/Michi/Library/BuildProfiles
+/Michi/Library/PackageCache
+/Michi/Library/PackageManager
+/Michi/Library/Search
+*.bin
+/Michi/Library/StateCache
+*.log
+/Michi/Packages
+/Michi/ProjectSettings
