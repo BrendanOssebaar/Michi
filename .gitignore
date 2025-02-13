@@ -1,0 +1,9 @@
+/Michi/Library/Artifacts
+/Michi/Library/Bee
+/Michi/Library/PackageCache
+/Michi/Library/Search
+/Michi/Library/ShaderCache
+/Michi/Library/StateCache
+*.log
+/Michi/Temp
+/Michi/UserSettings
