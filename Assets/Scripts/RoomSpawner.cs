@@ -38,8 +38,9 @@ public class RoomSpawner : MonoBehaviour
         yield return new WaitForSeconds(delay);
         PoolManager.Instance.ReturnRoom(room);
     }
-    void OnTriggerEnter(Collider other)
+    void HandleTrigger(Collider2D other)
     {
+        Debug.Log("Collision detected");
         // Bijvoorbeeld: controleer of het de speler is via de tag
         if(other.CompareTag("Player"))
         {
