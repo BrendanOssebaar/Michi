@@ -324,6 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 186376230}
   - component: {fileID: 186376231}
+  - component: {fileID: 186376232}
   m_Layer: 0
   m_Name: WalklThroughZone Left
   m_TagString: Untagged
@@ -339,13 +340,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186376228}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -7.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &186376231
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -392,6 +393,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &186376232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186376228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503f8e58632b4244381164fa4e9c6668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &217295734
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 217295736}
   - component: {fileID: 217295737}
+  - component: {fileID: 217295738}
   m_Layer: 0
   m_Name: WalklThroughZone Top
   m_TagString: Untagged
@@ -470,6 +484,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &217295738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217295734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503f8e58632b4244381164fa4e9c6668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &241316097
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,11 +796,8 @@ MonoBehaviour:
   - {fileID: 795756981}
   - {fileID: 241316097}
   - {fileID: 1566686736}
-  roomOffsetX: 25
-  roomOffsetY: 0
-  roomOffsetZ: 0
+  roomOffset: 10
   roomDeactivateDelay: 5
-  walkthroughZone: {fileID: 615697538}
 --- !u!1 &615697538
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,13 +824,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615697538}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 7.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!61 &615697541
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1110,11 +1133,8 @@ MonoBehaviour:
   - {fileID: 795756981}
   - {fileID: 241316097}
   - {fileID: 1566686736}
-  roomOffsetX: 0
-  roomOffsetY: 20
-  roomOffsetZ: 0
+  roomOffset: 2
   roomDeactivateDelay: 5
-  walkthroughZone: {fileID: 217295734}
 --- !u!4 &957233293
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,6 +1211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242714155}
   - component: {fileID: 1242714156}
+  - component: {fileID: 1242714157}
   m_Layer: 0
   m_Name: WalklThroughZone Bottom
   m_TagString: Untagged
@@ -1206,13 +1227,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242714153}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!61 &1242714156
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1259,6 +1280,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1242714157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242714153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503f8e58632b4244381164fa4e9c6668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1411023071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,11 +1896,8 @@ MonoBehaviour:
   - {fileID: 795756981}
   - {fileID: 241316097}
   - {fileID: 1566686736}
-  roomOffsetX: -25
-  roomOffsetY: 0
-  roomOffsetZ: 0
+  roomOffset: 10
   roomDeactivateDelay: 5
-  walkthroughZone: {fileID: 186376228}
 --- !u!4 &1841360857
 Transform:
   m_ObjectHideFlags: 0
@@ -1918,11 +1948,8 @@ MonoBehaviour:
   - {fileID: 795756981}
   - {fileID: 241316097}
   - {fileID: 1566686736}
-  roomOffsetX: 0
-  roomOffsetY: -20
-  roomOffsetZ: 0
+  roomOffset: 2
   roomDeactivateDelay: 5
-  walkthroughZone: {fileID: 1242714153}
 --- !u!4 &2096710439
 Transform:
   m_ObjectHideFlags: 0

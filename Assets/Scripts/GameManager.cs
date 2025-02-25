@@ -4,9 +4,9 @@ public class GameManager : MonoBehaviour
 {
     public RoomSpawner roomSpawner;
     public static GameManager Instance;
+
     void Awake()
     {
-        // Zorg voor een enkelvoudige instantie van de GameManager
         if(Instance == null)
         {
             Instance = this;
@@ -16,15 +16,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void OnPlayerTriggered()
+    
+    // Nieuwe methode die de triggerbox's transform doorgeeft
+    public void OnPlayerTriggered(Transform triggerTransform)
     {
-        roomSpawner.SpawnNewRoom();
+        roomSpawner.SpawnNewRoom(triggerTransform);
     }
-    // private void Update()
-    // {
-    //     if (roomSpawner.walkthroughZone == ColliderHit)
-    //     {
-    //         roomSpawner.SpawnNewRoom();
-    //     }
-    // }
 }
