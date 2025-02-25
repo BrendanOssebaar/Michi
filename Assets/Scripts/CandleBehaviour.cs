@@ -1,5 +1,6 @@
 using System.Security.Principal;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CandleBehaviour : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class CandleBehaviour : MonoBehaviour
     private float _currentCandleDuration;
     private int _currentCandleState = 0;
     private Light _candleLight;
+    [SerializeField] private InputAction _playerInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,9 +18,26 @@ public class CandleBehaviour : MonoBehaviour
         _candleLight = gameObject.GetComponent<Light>();
     }
 
+    void OnEnable()
+    {
+        _playerInput.Enable();
+    }
+
+    void OnDisable()
+    {
+        _playerInput.Disable();
+    }
+
     // Countdown for the candle
     void FixedUpdate()
     {
+        if (_playerInput.ReadValue<float>() == 1.0f)
+        {
+            if (_currentCandleState == 3)
+            {
+                LightCandle();
+            }
+        }
         if ( _currentCandleDuration > 0)
         {
             _currentCandleDuration--;
@@ -35,6 +54,7 @@ public class CandleBehaviour : MonoBehaviour
         //lucifers--;
         _currentCandleState = 0;
         gameObject.SetActive(true);
+        ChangeCandleState(_currentCandleState);
     }
 
     void ChangeCandleState(int state)

@@ -409,6 +409,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxCandleDuration: 6
+  _playerInput:
+    m_Name: Player Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2db7718d-d5c6-46cd-941f-d5419c59f8c0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 43fe2084-9571-430b-bfe4-3fe5da4d71a3
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Input
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &716099657
 GameObject:
   m_ObjectHideFlags: 0
