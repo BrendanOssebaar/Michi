@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public RoomSpawner roomSpawner;
     public static GameManager Instance;
+    public Transform playerTransform; // Set this in the Inspector.
+    public float playerDoorOffset;
 
     void Awake()
     {
