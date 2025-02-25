@@ -1,12 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class RoomSpawner : MonoBehaviour
 {
     public GameObject[] preMadeRooms; 
     private GameObject _currentRoom; 
-    public float roomOffset = 10f; 
+    private GameObject _previousRoom; 
+    public float roomOffsetX = 10f; 
+    public float roomOffsetY = 10f; 
+    public float roomOffsetZ = 10f; 
     public float roomDeactivateDelay = 5f;
+    public GameObject walkthroughZone;
     private void Start()
     {
         PoolManager.Instance.InitializePool(preMadeRooms);
@@ -17,16 +22,11 @@ public class RoomSpawner : MonoBehaviour
         Vector3 spawnPosition = Vector3.zero;
         if (_currentRoom != null)
         {
-            spawnPosition = _currentRoom.transform.position + new Vector3(roomOffset, 0, 0); // Verplaats naar rechts
+            
+            spawnPosition = _currentRoom.transform.position + new Vector3(roomOffsetX, roomOffsetY, roomOffsetZ); // Verplaats naar rechts
             StartCoroutine(DeactivateRoomAfterDelay(_currentRoom, roomDeactivateDelay));
         }
-        // // Stuur de vorige kamer terug naar de pool
-        // if (_currentRoom != null)
-        // {
-        //     PoolManager.Instance.ReturnRoom(_currentRoom);
-        // }
-
-        // Haal een random kamer uit de pool en plaats deze op de juiste locatie
+        
         _currentRoom = PoolManager.Instance.GetRandomRoom();
         if (_currentRoom != null)
         {
@@ -37,5 +37,14 @@ public class RoomSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         PoolManager.Instance.ReturnRoom(room);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        // Bijvoorbeeld: controleer of het de speler is via de tag
+        if(other.CompareTag("Player"))
+        {
+            // Verwijs naar de GameManager en roep een methode aan
+            GameManager.Instance.OnPlayerTriggered();
+        }
     }
 }
