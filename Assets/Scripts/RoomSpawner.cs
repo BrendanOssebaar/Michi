@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class RoomSpawner : MonoBehaviour
 {
     public GameObject[] preMadeRooms; 
@@ -73,11 +72,22 @@ public class RoomSpawner : MonoBehaviour
         Vector3 oldRoomStart = oldRoom.transform.position;
         Vector3 displacement = centerPosition - newRoomStart;
         Vector3 oldRoomTarget = oldRoomStart + displacement;
+        DoorTrigger doorTrigger = triggerTransform.GetComponent<DoorTrigger>();
+        
+        // The target position: center of the new room plus an offset in the trigger's up direction.
+        Vector3 playerTarget;
+        if (doorTrigger != null && doorTrigger.targetPlayerPosition != null)
+        {
+            // Gebruik de exacte positie uit de editor
+            playerTarget = doorTrigger.targetPlayerPosition.position;
+        }
+        else
+        {
+            // Fallback: gebruik een offset in de up richting van de trigger
+            playerTarget = centerPosition + (Vector3)(triggerTransform.up * GameManager.Instance.playerDoorOffset);
+        }
         Transform player = GameManager.Instance.playerTransform;
         Vector3 playerStart = player.position;
-        // The target position: center of the new room plus an offset in the trigger's up direction.
-        Vector3 playerTarget = centerPosition + (Vector3)(-triggerTransform.up * GameManager.Instance.playerDoorOffset)+Vector3.back;
-
         float duration = roomSlideTime;
         float elapsed = 0f;
         while (elapsed < duration)
@@ -86,7 +96,7 @@ public class RoomSpawner : MonoBehaviour
             newRoom.transform.position = Vector3.Lerp(newRoomStart, centerPosition, t);
             oldRoom.transform.position = Vector3.Lerp(oldRoomStart, oldRoomTarget, t);
             
-            float playerT = t * 0.99f;
+            float playerT = t * 1f;
             player.position = Vector3.Lerp(playerStart, playerTarget, playerT);
             
             elapsed += Time.deltaTime;
