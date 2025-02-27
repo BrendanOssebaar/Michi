@@ -7,20 +7,15 @@ public class RoomSpawner : MonoBehaviour
     public float roomOffset = 5f; 
     public float roomDeactivateDelay = 5f;
     [SerializeField] private float roomSlideTime;
-    [SerializeField] private GameObject baseBackground;
 
-    // private void Start()
-    // {
-    //     PoolManager.Instance.InitializePool(preMadeRooms);
-    // }
+    private void Start()
+    {
+        PoolManager.Instance.InitializePool(preMadeRooms);
+    }
 
     // Nieuwe SpawnNewRoom-methode die een triggerTransform verwacht
     public void SpawnNewRoom(Transform triggerTransform)
     {
-        if (baseBackground != null)
-        {
-            baseBackground.SetActive(false);
-        }
         // Bereken de spawnpositie op basis van de triggerbox
         Vector2 spawnPosition = (Vector2)triggerTransform.position + (Vector2)triggerTransform.up * roomOffset;
         
