@@ -5,7 +5,7 @@ public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance;
     private List<GameObject> roomPool = new List<GameObject>();
-
+    [SerializeField] private GameObject background;
     private void Awake()
     {
         Instance = this;
@@ -23,7 +23,7 @@ public class PoolManager : MonoBehaviour
     public GameObject GetRandomRoom()
     {
         if (roomPool.Count == 0) return null;
-
+        background.SetActive(false);
         int randomIndex = Random.Range(0, roomPool.Count);
         GameObject room = roomPool[randomIndex];
 
