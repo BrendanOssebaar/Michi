@@ -39,7 +39,7 @@ public class ScreenManager : MonoBehaviour
     {
         if (Fullscreen)
         {
-            Screen.FullScreen = Fullscreen;
+            //Screen.FullScreen = Fullscreen;
         }
     }
 
