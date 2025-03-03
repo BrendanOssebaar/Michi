@@ -35,4 +35,12 @@ public class ScreenManager : MonoBehaviour
         Screen.SetResolution(Width, Height, Fullscreen);
     }
 
+    public void ToggleFullScreen(bool Fullscreen) 
+    {
+        if (Fullscreen)
+        {
+            Screen.FullScreen = Fullscreen;
+        }
+    }
+
 }
