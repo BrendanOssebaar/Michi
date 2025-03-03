@@ -4,8 +4,8 @@ using UnityEngine;
 public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance;
-    private readonly List<GameObject> _roomPool = new List<GameObject>();
-
+    private List<GameObject> roomPool = new List<GameObject>();
+    [SerializeField] private GameObject background;
     private void Awake()
     {
         Instance = this;
@@ -22,10 +22,10 @@ public class PoolManager : MonoBehaviour
 
     public GameObject GetRandomRoom()
     {
-        if (_roomPool.Count == 0) return null;
-
-        var randomIndex = Random.Range(0, _roomPool.Count);
-        var room = _roomPool[randomIndex];
+        if (roomPool.Count == 0) return null;
+        background.SetActive(false);
+        int randomIndex = Random.Range(0, roomPool.Count);
+        GameObject room = roomPool[randomIndex];
 
         room.SetActive(true);
         return room;
