@@ -1,14 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _movementSpeed;
+    [SerializeField] private float movementSpeed;
     private Rigidbody2D _rigidBody;
-    [SerializeField] private InputAction _playerInput;
+    [SerializeField] private InputAction playerInput;
     private Vector2 _movementDirection;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _rigidBody = gameObject.GetComponent<Rigidbody2D>();
@@ -16,19 +15,17 @@ public class PlayerMovement : MonoBehaviour
 
     void OnEnable()
     {
-        _playerInput.Enable();
+        playerInput.Enable();
     }
 
     void OnDisable()
     {
-        _playerInput.Disable();
+        playerInput.Disable();
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         _movementDirection = Vector2.zero;
-        _movementDirection += _playerInput.ReadValue<Vector2>();
-        _rigidBody.linearVelocity = _movementDirection.normalized * _movementSpeed;
+        _movementDirection += playerInput.ReadValue<Vector2>();
+        _rigidBody.linearVelocity = _movementDirection.normalized * movementSpeed;
     }
 }
