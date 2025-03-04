@@ -6,11 +6,12 @@ public class MenuManager : MonoBehaviour
 {
 
     [SerializeField] private InputAction playerInput;
-    [SerializeField] private GameObject settingsMenu;
+    public GameObject currentMenu;
     private bool _isShowing = false;
     private bool _canPress = true;
     private int _timer;
-
+    [SerializeField] private GameObject settingsMenu;
+    
     void OnEnable()
     {
         playerInput.Enable();
@@ -26,9 +27,14 @@ public class MenuManager : MonoBehaviour
     {
         if (playerInput.ReadValue<float>() == 1 && _canPress) 
         {
-            settingsMenu.SetActive(!_isShowing);
-            _isShowing = !_isShowing;
-            _canPress = false;
+            if (!_isShowing)
+            {
+                OpenMenu();
+            }
+            else
+            {
+                CloseMenu();
+            }
         }
 
         _timer++;
@@ -38,5 +44,20 @@ public class MenuManager : MonoBehaviour
             _canPress = true;
             _timer = 0;
         }
+    }
+
+    public void OpenMenu()
+    {
+        currentMenu.SetActive(true);
+        _isShowing = true;
+        _canPress = false;
+    }
+
+    public void CloseMenu()
+    {
+        currentMenu.SetActive(false);
+        _isShowing = false;
+        _canPress = false;
+        currentMenu = settingsMenu;
     }
 }
