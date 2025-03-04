@@ -32,24 +32,24 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         _movementDirection = Vector2.zero;
-        _movementDirection += _playerInput.ReadValue<Vector2>();
-        if(_playerInput.ReadValue<Vector2>().normalized == new Vector2(0, 1))
+        _movementDirection += playerInput.ReadValue<Vector2>();
+        if(playerInput.ReadValue<Vector2>().normalized == new Vector2(0, 1))
         {
             _spriteRenderer.sprite = _sprites[2];
         }
-        if (_playerInput.ReadValue<Vector2>().normalized == new Vector2(1, 0))
+        if (playerInput.ReadValue<Vector2>().normalized == new Vector2(1, 0))
         {
             _spriteRenderer.sprite = _sprites[3];
         }
-        if (_playerInput.ReadValue<Vector2>().normalized == new Vector2(0, -1))
+        if (playerInput.ReadValue<Vector2>().normalized == new Vector2(0, -1))
         {
             _spriteRenderer.sprite = _sprites[0];
         }
-        if (_playerInput.ReadValue<Vector2>().normalized == new Vector2(-1, 0))
+        if (playerInput.ReadValue<Vector2>().normalized == new Vector2(-1, 0))
         {
             _spriteRenderer.sprite = _sprites[1];
         }
 
-        _rigidBody.linearVelocity = _movementDirection.normalized * _movementSpeed;
+        _rigidBody.linearVelocity = _movementDirection.normalized * movementSpeed;
     }
 }
