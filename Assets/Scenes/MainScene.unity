@@ -341,17 +341,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c233e3f66418cbe47bcbd70d4ceeb140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
-  _playerInput:
+  movementSpeed: 5
+  playerInput:
     m_Name: Player Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 41c40acc-40fc-45a3-a454-97fb616b94fe
+    m_Id: b7b7fa2a-3e6f-418e-b8eb-b5151505522f
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 2D Vector
-      m_Id: a73a5231-bb32-4ff7-8366-1aa95a9dbb7d
+      m_Id: 320aafa0-cf68-4e5b-a184-57f1b8dc818e
       m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
@@ -359,7 +359,7 @@ MonoBehaviour:
       m_Action: Player Input
       m_Flags: 4
     - m_Name: up
-      m_Id: 56275c01-44fd-45e4-b2fc-7e8601d04ca5
+      m_Id: caef708d-a3a3-441a-97a2-c510c26c8d70
       m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: Invert
@@ -367,7 +367,7 @@ MonoBehaviour:
       m_Action: Player Input
       m_Flags: 8
     - m_Name: down
-      m_Id: 1dec0bdc-965d-409f-898d-3bae271efc4d
+      m_Id: fd9d65a3-6a68-493f-b6d3-4ccd1091b7c4
       m_Path: <Keyboard>/s
       m_Interactions: 
       m_Processors: 
@@ -375,7 +375,7 @@ MonoBehaviour:
       m_Action: Player Input
       m_Flags: 8
     - m_Name: left
-      m_Id: aad72318-aa14-4d4b-b47a-5e5dadce3fcd
+      m_Id: 1a7f9c8b-2a77-490d-a257-5bd36631ce93
       m_Path: <Keyboard>/a
       m_Interactions: 
       m_Processors: Invert
@@ -383,7 +383,7 @@ MonoBehaviour:
       m_Action: Player Input
       m_Flags: 8
     - m_Name: right
-      m_Id: 1bc660e2-d686-4382-a55d-ded8bec24671
+      m_Id: 83f7741d-1ac9-4349-ab37-88928b9d0635
       m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
@@ -403,7 +403,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49132628}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!61 &49132635
 BoxCollider2D:
   m_ObjectHideFlags: 0
