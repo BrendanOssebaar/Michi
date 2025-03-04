@@ -288,6 +288,8 @@ GameObject:
   - component: {fileID: 49132630}
   - component: {fileID: 49132629}
   - component: {fileID: 49132632}
+  - component: {fileID: 49132633}
+  - component: {fileID: 49132634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -454,6 +456,66 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Player Input
       m_Flags: 8
+    m_Flags: 0
+--- !u!114 &49132633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49132628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47753803ebe11cd439adb3fdbe2d1f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput:
+    m_Name: Player Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 11563364-f61d-4410-bc76-3ead83236daf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4d2f7442-1549-4196-a359-c3b6992696e9
+      m_Path: <Keyboard>/escape
+      m_Interactions: Press(behavior=1)
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Input
+      m_Flags: 0
+    m_Flags: 0
+  settingsMenu: {fileID: 754261042}
+--- !u!114 &49132634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49132628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5387b867b9ce6c943abad110fc5a50dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInput: {fileID: 0}
+  _toggleMenu:
+    m_Name: Toggle Menu
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 69ee378c-0d6d-4c00-92ff-8ed9298a744a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 66ce77db-f28c-4799-88e4-ec9904791574
+      m_Path: <Keyboard>/escape
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Menu
+      m_Flags: 0
     m_Flags: 0
 --- !u!1 &58605892
 GameObject:
@@ -1618,7 +1680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &754261043
 MonoBehaviour:
   m_ObjectHideFlags: 0
