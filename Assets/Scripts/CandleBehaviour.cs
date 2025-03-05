@@ -1,37 +1,38 @@
 using System.Security.Principal;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class CandleBehaviour : MonoBehaviour
 {
 
-    [SerializeField] public float _maxCandleDuration;
+    [SerializeField] public float maxCandleDuration;
     private float _currentCandleDuration;
     private int _currentCandleState = 0;
     private Light _candleLight;
-    [SerializeField] private InputAction _playerInput;
+    [SerializeField] private InputAction playerInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _currentCandleDuration = (_maxCandleDuration * 60);
+        _currentCandleDuration = (maxCandleDuration * 60);
         _candleLight = gameObject.GetComponent<Light>();
     }
 
     void OnEnable()
     {
-        _playerInput.Enable();
+        playerInput.Enable();
     }
 
     void OnDisable()
     {
-        _playerInput.Disable();
+        playerInput.Disable();
     }
 
     // Countdown for the candle
     void FixedUpdate()
     {
-        if (_playerInput.ReadValue<float>() == 1.0f)
+        if (playerInput.ReadValue<float>() == 1.0f)
         {
             if (_currentCandleState == 3)
             {
@@ -59,7 +60,7 @@ public class CandleBehaviour : MonoBehaviour
 
     void ChangeCandleState(int state)
     {
-        _currentCandleDuration = (_maxCandleDuration * 60);
+        _currentCandleDuration = (maxCandleDuration * 60);
         if (state == 0) {
             //change candle sprite
             _candleLight.intensity = 6;
