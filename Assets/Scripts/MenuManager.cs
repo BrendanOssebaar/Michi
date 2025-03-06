@@ -6,9 +6,9 @@ public class MenuManager : MonoBehaviour
 {
 
     [SerializeField] private InputAction playerInput;
-    public GameObject currentMenu;
-    private bool _isShowing = false;
-    private bool _canPress = true;
+    private GameObject _currentMenu;
+    public bool isShowing = false;
+    public bool canPress = true;
     private int _timer;
     [SerializeField] private GameObject settingsMenu;
     
@@ -25,15 +25,15 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (playerInput.ReadValue<float>() == 1 && _canPress) 
+        if (playerInput.ReadValue<float>() == 1 && canPress) 
         {
-            if (!_isShowing)
+            if (!isShowing)
             {
-                OpenMenu();
+                OpenMenu(settingsMenu);
             }
             else
             {
-                CloseMenu();
+                CloseMenu(_currentMenu);
             }
         }
 
@@ -41,23 +41,28 @@ public class MenuManager : MonoBehaviour
 
         if (_timer == 30)
         {
-            _canPress = true;
+            canPress = true;
             _timer = 0;
         }
     }
 
-    public void OpenMenu()
+    public void OpenMenu(GameObject menu)
     {
-        currentMenu.SetActive(true);
-        _isShowing = true;
-        _canPress = false;
+        if (_currentMenu)
+        {
+            CloseMenu(_currentMenu);
+        }
+        menu.SetActive(true);
+        isShowing = true;
+        canPress = false;
+        _currentMenu = menu;
     }
 
-    public void CloseMenu()
+    public void CloseMenu(GameObject menu)
     {
-        currentMenu.SetActive(false);
-        _isShowing = false;
-        _canPress = false;
-        currentMenu = settingsMenu;
+        _currentMenu.SetActive(false);
+        isShowing = false;
+        canPress = false;
+        _currentMenu = settingsMenu;
     }
 }
