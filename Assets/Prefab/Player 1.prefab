@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7997265414074391968}
   - component: {fileID: 6671884482908178410}
   - component: {fileID: 4255919223695229923}
+  - component: {fileID: 3857067130680882103}
+  - component: {fileID: 1060570039173124218}
+  - component: {fileID: 5849052285862842249}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -243,6 +246,112 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 30.000002, y: 30.000002}
+  m_EdgeRadius: 0
+--- !u!114 &3857067130680882103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853113669580664424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209f22de591d8d14194761c9eb0bb06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput:
+    m_Name: Player Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d6d86b3c-e5ac-461f-99b6-3af101ff8145
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: de935920-f295-49f7-b0f1-02c2c0e20603
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Input
+      m_Flags: 0
+    m_Flags: 0
+--- !u!114 &1060570039173124218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853113669580664424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47753803ebe11cd439adb3fdbe2d1f65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput:
+    m_Name: Player Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 11563364-f61d-4410-bc76-3ead83236daf
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4d2f7442-1549-4196-a359-c3b6992696e9
+      m_Path: <Keyboard>/escape
+      m_Interactions: Press(behavior=1)
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Input
+      m_Flags: 0
+    m_Flags: 0
+  currentMenu: {fileID: 0}
+  settingsMenu: {fileID: 0}
+--- !u!61 &5849052285862842249
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853113669580664424}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 30.000002, y: 30.000002}
+    newSize: {x: 30.000002, y: 30.000002}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
 --- !u!1 &6318961140942305574
 GameObject:

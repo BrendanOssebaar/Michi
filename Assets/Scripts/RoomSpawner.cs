@@ -3,27 +3,30 @@ using UnityEngine;
 public class RoomSpawner : MonoBehaviour
 {
     public GameObject[] preMadeRooms; 
-    private GameObject _currentRoom; 
+    public GameObject currentRoom; 
     public float roomOffset = 5f; 
     public float roomDeactivateDelay = 5f;
     [SerializeField] private float roomSlideTime;
+    public bool roomIsTransitioned;
 
     private void Start()
     {
         PoolManager.Instance.InitializePool(preMadeRooms);
+        roomIsTransitioned = false;
     }
     public void SpawnNewRoom(Transform triggerTransform)
     {
+        roomIsTransitioned = false;
         var spawnPosition = (Vector2)triggerTransform.position + (Vector2)triggerTransform.up * roomOffset;
         GameObject newRoom = PoolManager.Instance.GetRandomRoom();
         if(newRoom != null)
         {
             newRoom.transform.position = spawnPosition;
             newRoom.transform.rotation = Quaternion.Euler(0,0,0);
-            StartCoroutine(_currentRoom != null
-                ? TransitionRooms(newRoom, _currentRoom, triggerTransform)
+            StartCoroutine(currentRoom != null
+                ? TransitionRooms(newRoom, currentRoom, triggerTransform)
                 : SlideRoomToCenter(newRoom, triggerTransform));
-            _currentRoom = newRoom;
+            currentRoom = newRoom;
         }
     }
     private IEnumerator SlideRoomToCenter(GameObject room, Transform triggerTransform)
@@ -92,7 +95,10 @@ public class RoomSpawner : MonoBehaviour
         }
         player.position = playerTarget;
 
-        
+        if (newRoom.transform.position == centerPosition)
+        {
+            roomIsTransitioned = true;
+        }
         StartCoroutine(DeactivateRoomAfterDelay(oldRoom, roomDeactivateDelay));
     }
 

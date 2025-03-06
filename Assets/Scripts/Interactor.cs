@@ -34,10 +34,14 @@ public class Interactor : MonoBehaviour
         }
         if (_other)
         {
-            if (_other.gameObject.GetComponent<Interactable>().menu.activeSelf == false)
+            if (_other.gameObject.GetComponent<Interactable>())
             {
-                _canInteract = true;
+                if (_other.gameObject.GetComponent<Interactable>().menu.activeSelf == false)
+                {
+                    _canInteract = true;
+                }
             }
+            
         }
     }
 
