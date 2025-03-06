@@ -276,8 +276,13 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   hasPlush: 0
-  matches: 0
   candles: 0
+  matches: 0
+  plushSlot: {fileID: 0}
+  candleSlot: {fileID: 0}
+  matchSlot: {fileID: 0}
+  candleText: {fileID: 0}
+  matchText: {fileID: 0}
 --- !u!61 &2492601603162952480
 BoxCollider2D:
   m_ObjectHideFlags: 0

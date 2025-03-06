@@ -2,6 +2,7 @@ using System.Collections;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -9,8 +10,13 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject menu;
     [SerializeField] private InputAction playerInput;
     public bool hasPlush;
-    public int matches;
     public int candles;
+    public int matches;
+    [SerializeField] private GameObject plushSlot;
+    [SerializeField] private GameObject candleSlot;
+    [SerializeField] private GameObject matchSlot;
+    [SerializeField] private TextMeshProUGUI candleText;
+    [SerializeField] private TextMeshProUGUI matchText;
     private int _maxCandles = 3;
     private int _maxMatches = 6;
     private GameObject _player;
@@ -18,9 +24,9 @@ public class Inventory : MonoBehaviour
 
     public enum itemType
     {
-        Plushie,
-        Candle,
-        Match
+        Plushie = 0,
+        Candle = 1,
+        Match = 2
     }
 
     void Start()
@@ -34,6 +40,23 @@ public class Inventory : MonoBehaviour
         {
             if(_player.GetComponent<MenuManager>().isShowing == false)
             {
+                plushSlot.SetActive(hasPlush);
+                if(candles > 0)
+                {
+                    candleSlot.SetActive(true);
+                }
+                else
+                {
+                    candleSlot.SetActive(false);
+                }
+                if(matches > 0)
+                {
+                    matchSlot.SetActive(true);
+                }
+                else
+                {
+                    matchSlot.SetActive(false);
+                }
                 _player.GetComponent<MenuManager>().OpenMenu(menu);
             } 
             else
@@ -67,6 +90,7 @@ public class Inventory : MonoBehaviour
             if (candles < _maxCandles)
             {
                 candles++;
+                candleText.text = candles.ToString();
             }
         }
         if (item == itemType.Match)
@@ -74,6 +98,7 @@ public class Inventory : MonoBehaviour
             if (matches < _maxMatches)
             {
                 matches++;
+                matchText.text = matches.ToString();
             }
         }      
     }
