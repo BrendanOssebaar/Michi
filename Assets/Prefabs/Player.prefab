@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2032041031631382610}
   - component: {fileID: 6013159996986990119}
   - component: {fileID: 8925743307668455854}
+  - component: {fileID: 7820783430357324620}
   - component: {fileID: 2492601603162952480}
   - component: {fileID: 3217993562614006610}
   m_Layer: 0
@@ -212,7 +213,8 @@ MonoBehaviour:
       m_Action: Player Input
       m_Flags: 0
     m_Flags: 0
-  currentMenu: {fileID: 0}
+  isShowing: 0
+  canPress: 1
   settingsMenu: {fileID: 0}
 --- !u!114 &8925743307668455854
 MonoBehaviour:
@@ -243,6 +245,39 @@ MonoBehaviour:
       m_Action: Player Input
       m_Flags: 0
     m_Flags: 0
+--- !u!114 &7820783430357324620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203434965630717979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aae2a103c52ad7449989c19ea8e13d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
+  playerInput:
+    m_Name: Player Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1ac06d8a-c68f-48d5-a59f-7f60e72a819e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2ed8a14a-dbb9-43d5-9d54-b59229f2b857
+      m_Path: <Keyboard>/i
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Input
+      m_Flags: 0
+    m_Flags: 0
+  hasPlush: 0
+  matches: 0
+  candles: 0
 --- !u!61 &2492601603162952480
 BoxCollider2D:
   m_ObjectHideFlags: 0
