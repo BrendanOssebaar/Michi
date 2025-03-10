@@ -211,6 +211,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169369301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6174363201865505544, guid: b07a77234339c5043a10ad5841d75b15, type: 3}
+  m_PrefabInstance: {fileID: 546250424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6a69baaffd53a4681b61754a0209d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &373011558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -497,7 +508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   michi: {fileID: 2133058419}
   michiSpawnPoint: {fileID: 742072164}
-  timeMichiStays: 1
+  timeMichiStays: 5
+  roomSpawner: {fileID: 169369301}
 --- !u!4 &742072166
 Transform:
   m_ObjectHideFlags: 0
