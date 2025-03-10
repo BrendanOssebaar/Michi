@@ -1,10 +1,12 @@
 using System;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
     public GameObject menu;
     private GameObject _player;
+    private int _randomNumber;
 
     void Start()
     {
@@ -13,9 +15,17 @@ public class Interactable : MonoBehaviour
 
     public void OpenMenu()
     {
-        _player.GetComponent<MenuManager>().currentMenu = menu;
-        menu.SetActive(true);
-        menu.transform.GetChild(UnityEngine.Random.Range(0, 3)).gameObject.SetActive(true);
+        menu.transform.GetChild(_randomNumber).gameObject.SetActive(false);
+        if(_player.GetComponent<Inventory>().hasPlush)
+        {
+            _randomNumber = UnityEngine.Random.Range(1, 3);
+        }
+        else
+        {
+            _randomNumber = UnityEngine.Random.Range(0, 3);
+        }
+        _player.GetComponent<MenuManager>().OpenMenu(menu);
+        menu.transform.GetChild(_randomNumber).gameObject.SetActive(true);
+        _player.GetComponent<Inventory>().AddToInventory((Inventory.itemType)_randomNumber);
     }
-
 }
