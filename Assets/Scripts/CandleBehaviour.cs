@@ -10,12 +10,14 @@ public class CandleBehaviour : MonoBehaviour
     private int _currentCandleState = 0;
     private Light _candleLight;
     [SerializeField] private InputAction _playerInput;
+    private GameObject _player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _currentCandleDuration = (_maxCandleDuration * 60);
         _candleLight = gameObject.GetComponent<Light>();
+        _player = GameObject.Find("Player");
     }
 
     void OnEnable()
@@ -51,10 +53,14 @@ public class CandleBehaviour : MonoBehaviour
 
     void LightCandle()
     {
-        //lucifers--;
-        _currentCandleState = 0;
-        gameObject.SetActive(true);
-        ChangeCandleState(_currentCandleState);
+        if(_player.GetComponent<Inventory>().candles > 0 && _player.GetComponent<Inventory>().matches > 0)
+        {
+            _player.GetComponent<Inventory>().matches--;
+            _player.GetComponent<Inventory>().candles--;
+            _currentCandleState = 0;
+            gameObject.SetActive(true);
+            ChangeCandleState(_currentCandleState);
+        }
     }
 
     void ChangeCandleState(int state)
