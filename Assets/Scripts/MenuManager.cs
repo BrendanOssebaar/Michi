@@ -39,7 +39,7 @@ public class MenuManager : MonoBehaviour
 
         _timer++;
 
-        if (_timer == 30)
+        if (_timer >= 45)
         {
             canPress = true;
             _timer = 0;
