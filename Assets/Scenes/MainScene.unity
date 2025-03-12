@@ -978,24 +978,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1037266886}
-    - target: {fileID: 3244795842441450210, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1037266884}
-    - target: {fileID: 3244795842441450210, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1037266884}
     - target: {fileID: 4450503864895105342, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1037266884}
-    - target: {fileID: 4706347826084607803, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1037266884}
-    - target: {fileID: 4706347826084607803, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1037266884}
     - target: {fileID: 5689865390165348372, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
@@ -1078,6 +1062,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6581671692631112916, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1037266884}
+    - target: {fileID: 6581671692631112916, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1037266884}
+    - target: {fileID: 7811060804534561122, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1037266884}
+    - target: {fileID: 7811060804534561122, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1037266884}
     - target: {fileID: 8041849279496749044, guid: 8bd090a3a06c54245a064015fa215380, type: 3}
       propertyPath: m_Name
       value: SettingsMenu
