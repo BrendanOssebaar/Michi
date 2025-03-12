@@ -7,7 +7,7 @@ public class CandleBehaviour : MonoBehaviour
 
     [SerializeField] public float _maxCandleDuration;
     private float _currentCandleDuration;
-    private int _currentCandleState = 0;
+    public int currentCandleState = 0;
     private Light _candleLight;
     [SerializeField] private InputAction _playerInput;
     private GameObject _player;
@@ -35,7 +35,7 @@ public class CandleBehaviour : MonoBehaviour
     {
         if (_playerInput.ReadValue<float>() == 1.0f)
         {
-            if (_currentCandleState == 3)
+            if (currentCandleState == 3)
             {
                 LightCandle();
             }
@@ -44,10 +44,10 @@ public class CandleBehaviour : MonoBehaviour
         {
             _currentCandleDuration--;
         }
-        else
+        else if(currentCandleState <3)
         {
-            _currentCandleState++;
-            ChangeCandleState(_currentCandleState);
+            currentCandleState++;
+            ChangeCandleState(currentCandleState);
         }
     }
 
@@ -57,9 +57,9 @@ public class CandleBehaviour : MonoBehaviour
         {
             _player.GetComponent<Inventory>().matches--;
             _player.GetComponent<Inventory>().candles--;
-            _currentCandleState = 0;
+            currentCandleState = 0;
             gameObject.SetActive(true);
-            ChangeCandleState(_currentCandleState);
+            ChangeCandleState(currentCandleState);
         }
     }
 
