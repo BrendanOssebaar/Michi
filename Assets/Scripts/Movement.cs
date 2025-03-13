@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputAction playerInput;
     private Vector2 _movementDirection;
     private SpriteRenderer _spriteRenderer;
+    public GameObject plushieBack;
     [SerializeField] private List<Sprite> _sprites;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if (playerInput.ReadValue<Vector2>().normalized == new Vector2(0, -1))
         {
             _spriteRenderer.sprite = _sprites[0];
+            plushieBack
         }
         if (playerInput.ReadValue<Vector2>().normalized == new Vector2(-1, 0))
         {
