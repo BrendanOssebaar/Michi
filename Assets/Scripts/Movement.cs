@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _movementSpeed;
+    [SerializeField] private float movementSpeed;
     private Rigidbody2D _rigidBody;
-    [SerializeField] private InputAction _playerInput;
+    [SerializeField] private InputAction playerInput;
     private Vector2 _movementDirection;
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private List<Sprite> _sprites;
@@ -21,36 +22,34 @@ public class PlayerMovement : MonoBehaviour
 
     void OnEnable()
     {
-        _playerInput.Enable();
+        playerInput.Enable();
     }
 
     void OnDisable()
     {
-        _playerInput.Disable();
+        playerInput.Disable();
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         _movementDirection = Vector2.zero;
-        _movementDirection += _playerInput.ReadValue<Vector2>();
-        if (_playerInput.ReadValue<Vector2>().normalized == new Vector2(0, 1))
+        _movementDirection += playerInput.ReadValue<Vector2>();
+        if(playerInput.ReadValue<Vector2>().normalized == new Vector2(0, 1))
         {
             _spriteRenderer.sprite = _sprites[2];
         }
-        if (_playerInput.ReadValue<Vector2>().normalized == new Vector2(1, 0))
+        if (playerInput.ReadValue<Vector2>().normalized == new Vector2(1, 0))
         {
             _spriteRenderer.sprite = _sprites[3];
         }
-        if (_playerInput.ReadValue<Vector2>().normalized == new Vector2(0, -1))
+        if (playerInput.ReadValue<Vector2>().normalized == new Vector2(0, -1))
         {
             _spriteRenderer.sprite = _sprites[0];
         }
-        if (_playerInput.ReadValue<Vector2>().normalized == new Vector2(-1, 0))
+        if (playerInput.ReadValue<Vector2>().normalized == new Vector2(-1, 0))
         {
             _spriteRenderer.sprite = _sprites[1];
         }
 
-        _rigidBody.linearVelocity = _movementDirection.normalized * _movementSpeed;
+        _rigidBody.linearVelocity = _movementDirection.normalized * movementSpeed;
     }
 }
