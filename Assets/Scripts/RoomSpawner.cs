@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 public class RoomSpawner : MonoBehaviour
 {
     public GameObject[] preMadeRooms; 
-    private GameObject _currentRoom; 
+    [SerializeField] private GameObject currentRoom; 
     public float roomOffset = 5f; 
     public float roomDeactivateDelay = 5f;
     [SerializeField] private float roomSlideTime;
@@ -20,13 +22,12 @@ public class RoomSpawner : MonoBehaviour
         {
             newRoom.transform.position = spawnPosition;
             newRoom.transform.rotation = Quaternion.Euler(0,0,0);
-            StartCoroutine(_currentRoom != null
-                ? TransitionRooms(newRoom, _currentRoom, triggerTransform)
-                : SlideRoomToCenter(newRoom, triggerTransform));
-            _currentRoom = newRoom;
+            TransitionRooms(newRoom, currentRoom, triggerTransform);
+            // SlideRoomToCenter(newRoom, triggerTransform);
+            currentRoom = newRoom;
         }
     }
-    private IEnumerator SlideRoomToCenter(GameObject room, Transform triggerTransform)
+    private void SlideRoomToCenter(GameObject room, Transform triggerTransform)
     {
         Vector3 centerPosition = GetCameraCenter();
         Vector3 startPos = room.transform.position;
@@ -36,7 +37,6 @@ public class RoomSpawner : MonoBehaviour
         {
             room.transform.position = Vector3.Lerp(startPos, centerPosition, elapsed / duration);
             elapsed += Time.deltaTime;
-            yield return null;
         }
         room.transform.position = centerPosition;
         if (GameManager.Instance.playerTransform != null)
@@ -44,7 +44,7 @@ public class RoomSpawner : MonoBehaviour
             GameManager.Instance.playerTransform.position = centerPosition + (triggerTransform.up * GameManager.Instance.playerDoorOffset);
         }
     }
-    private IEnumerator TransitionRooms(GameObject newRoom, GameObject oldRoom, Transform triggerTransform)
+    private void TransitionRooms(GameObject newRoom, GameObject oldRoom, Transform triggerTransform)
     {
         Vector3 centerPosition = GetCameraCenter();
         Vector3 newRoomStart = newRoom.transform.position;
@@ -75,7 +75,6 @@ public class RoomSpawner : MonoBehaviour
             player.position = Vector3.Lerp(playerStart, playerTarget, playerT);
             
             elapsed += Time.deltaTime;
-            yield return null;
         }
         newRoom.transform.position = centerPosition;
         oldRoom.transform.position = oldRoomTarget;
@@ -88,17 +87,15 @@ public class RoomSpawner : MonoBehaviour
             float extraT = extraElapsed / extraDuration;
             player.position = Vector3.Lerp(playerCurrent, playerTarget, extraT);
             extraElapsed += Time.deltaTime;
-            yield return null;
         }
         player.position = playerTarget;
 
         
-        StartCoroutine(DeactivateRoomAfterDelay(oldRoom, roomDeactivateDelay));
+        DeactivateRoomAfterDelay(oldRoom, roomDeactivateDelay);
     }
 
-    private IEnumerator DeactivateRoomAfterDelay(GameObject room, float delay)
+    private void DeactivateRoomAfterDelay(GameObject room, float delay)
     {
-        yield return new WaitForSeconds(delay);
         PoolManager.ReturnRoom(room);
     }
     private static Vector3 GetCameraCenter()
