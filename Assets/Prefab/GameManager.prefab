@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6243cd79f122841a44528d33973ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomSpawner: {fileID: 0}
-  playerTransform: {fileID: 0}
+  roomSpawner: {fileID: 1011224800624050689, guid: d800dbddae23ccb43a6e5fd0c87e7aa9, type: 3}
+  playerTransform: {fileID: 481048447194014042, guid: 67ff3ba8c310122469b43b5bb666165c, type: 3}
   playerDoorOffset: 0
