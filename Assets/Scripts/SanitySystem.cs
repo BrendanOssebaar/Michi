@@ -9,6 +9,7 @@ public class SanitySystem : MonoBehaviour
     private GameObject _player;
     [SerializeField] private Image sanityBar;
     [SerializeField] private TextMeshProUGUI sanityText;
+    public LevelManager _levelManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +45,10 @@ public class SanitySystem : MonoBehaviour
         else
         {
             Debug.Log("idk");
+        }
+        if(currentSanity <= 0f)
+        {
+            _levelManager.OpenLevel("MainScene");
         }
     }
 }
