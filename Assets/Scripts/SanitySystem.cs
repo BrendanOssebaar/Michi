@@ -48,7 +48,7 @@ public class SanitySystem : MonoBehaviour
         }
         if(currentSanity <= 0f)
         {
-            _levelManager.OpenLevel("MainScene");
+            _levelManager.OpenLevel("MenuScene");
         }
     }
 }
